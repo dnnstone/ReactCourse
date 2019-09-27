@@ -1,0 +1,60 @@
+.WeatherDataCont {
+  color: aquamarine;
+  width: 470px;
+  background-color:#182c24;
+border-left: 0px;
+border-right: 0px;
+border-top:0px;
+border-bottom: 1px;
+  border-color: antiquewhite;
+  border-style: solid;
+}
+.WeatherData{
+padding-left: 10px;
+}
+
+.LocationCont{
+  padding-left: 15px;
+  color:whitesmoke;
+  padding-top: 5px;
+  text-align: center;
+}
+.weatherExtraInfoCont {
+    display: inline-block;
+    width: 55%;
+      
+  }
+  .weatherTemperature {
+    display: inline-block;
+    width: 45%;
+    padding-top: 20ṕx;
+
+  }
+  .temperature {
+      font-size: 30px;
+      font-weight: bold;
+      padding-left: 10px;
+      
+      color:rgb(255, 255, 255);
+     
+  }
+  .temperatureType {
+      font-weight: bold;
+      color: #123212;
+      height: 200px;
+  }
+  .weatherExtraInfoText {
+
+    display:block;
+    font-size:26px;
+    font-weight: bold;
+    height: 50px;
+    padding-left: 25px;
+  }
+  .weatherTemperatureIcon{
+      padding-left: 65px;
+      color:orange;
+  }
+  body{
+    background-color: #282c34;
+  }
