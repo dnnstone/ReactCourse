@@ -1,16 +1,42 @@
 
 import React,{Component} from 'react';
-import Examen from './components/Examen';
-import WeatherLocation from './components/WeatherLocation';
+// import WeatherLocation from './components/WeatherLocation';
+import  Cities from './constants/cities';
+import LocationList from './components/LocationList';
 import './App.css';
 
-function App () 
+class App extends Component {
+
+  handleSelectedLocation = city => {
+    console.log('handleSelectedLocation dnns '+city.id+ ' nombre: '+city.name);
+}
+
+render () 
 {
     return (
     <div className="App">
           {/* <Examen parametro={'Raices'}/>     */}
-              <WeatherLocation city={'San Jeronimo'} country={'Perú'} id={7626291}/> 
+              
+              {/* <WeatherLocation city={'San Jeronimo'} country={'Perú'} id={7626291}/> 
+              <WeatherLocation city={'San Jeronimo'} country={'Perú'} id={3939459}/> 
+              <WeatherLocation city={'San Jeronimo'} country={'Perú'} id={3932834}/> 
+              <WeatherLocation city={'San Jeronimo'} country={'Perú'} id={3937733}/> 
+              <WeatherLocation city={'San Jeronimo'} country={'Perú'} id={3928924}/>  */}
+
+            {/* {strToComponents(Cities)}   */}
+            <LocationList cities={Cities} 
+              onSelectedLocation={this.handleSelectedLocation}/>
     </div>);
   }
+
+const 
+}
+// usado el map en funciones, aprendemos que para que se maneje arreglos de componentes, se tiene q agregar el key que
+//tendria que ser un valor unico como el index, o tambien como en nuestro caso podriamos darle como valo el city.id
+
+// const strToComponents = cities=>(
+//   cities.map ((city,index)=><WeatherLocation key={index} city={'San Jeronimo'} country={'Perú'}  id={city.id} />)
+// );
+
 
 export default App;

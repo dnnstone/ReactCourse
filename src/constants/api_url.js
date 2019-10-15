@@ -8,3 +8,5 @@ export const api_weather = (id)=>{
     return `${url_base_weather}?id=${id}&APPID=${api_key}`;
 }
 //export const api_weather= `${url_base_weather}?id=${location}&APPID=${api_key}`;
+// http://api.openweathermap.org/data/2.5/weather?id=3939459&APPID=c0a529df488f5c261daa4690385f035c
+ 

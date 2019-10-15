@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+// WeatherLocation.index.js
 
 import React, {Component} from 'react';
 
@@ -46,28 +47,28 @@ class WeatherLocation extends Component {
         this.state= {
             city:null,
             country:null,
-            id:7626291,
+            id,
             data: null,
         };
-        console.log('constructor');
+        // console.log('constructor');
     };
 
 componentDidMount() {
-    console.log('componentDidMount');
+    // console.log('componentDidMount');
     this.handleUpdateClick();
 }
 componentDidUpdate(prevProps, prevState) {
-    console.log('componentDidUpdate');
+    // console.log('componentDidUpdate');
 
 }
 
 
 componentWillMount() {
-    console.log('DESCONTINUADO componentWillMount');
+    // console.log('DESCONTINUADO componentWillMount');
 
 }
 componentWillUpdate(nextProps, nextState) {
-    console.log('DESCONTINUADO  componentWillUpdate');
+    // console.log('DESCONTINUADO  componentWillUpdate');
 }
 
 
@@ -78,7 +79,7 @@ componentWillUpdate(nextProps, nextState) {
 // fetch retorna una promise, que es un response el cual, para
 // obtener solo la data que requerimos tenemos que usar su metodo .json en nuestro caso
 // lo que lo hacemos de la siguiente manera.
-         fetch(api_weather(7626291)).then(resolve =>{
+         fetch(api_weather(this.state.id)).then(resolve =>{
             // console.log (resolve);
              return resolve.json();
          }).then(data => {
@@ -109,18 +110,19 @@ componentWillUpdate(nextProps, nextState) {
     // }
     // cualquiera de ambas funciona bien, lo distinto en la segunda es que  se ha
     render(){
-        console.log('render');
+        const {onWeatherLocationClick}=this.props;
+        // console.log('render');
         const {data,city,country}= this.state;
         return  (
-        <div className='WeatherDataCont'> 
+        <div className='WeatherDataCont' onClick={onWeatherLocationClick}> 
             {city?
                 country?
                     <Location city={city} country={country}/>:<span><CircularProgress color='pink' /></span>
-                :<span><CircularProgress color='yellow' /></span>}
+                :<span><CircularProgress /></span>}
             {/* <Location city={city} country={country}/> */}
             {data?
                 <WeatherData data={data}/>:
-                <CircularProgress color='white' ></CircularProgress>
+                <CircularProgress ></CircularProgress>
             }
             
             {/* <button onClick={this.handleUpdateClick}>Actualizar</button> */}
@@ -129,7 +131,9 @@ componentWillUpdate(nextProps, nextState) {
     };
 
     WeatherLocation.propTypes={
-        city:PropTypes.string.isRequired,
-        country:PropTypes.string.isRequired,
+        city:PropTypes.string,
+        country:PropTypes.string,
+        id:PropTypes.number.isRequired,
+        onWeatherLocationClick:PropTypes.func,
     }
 export default WeatherLocation;
