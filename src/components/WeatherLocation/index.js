@@ -15,7 +15,7 @@ import { SUN } from '../../constants/weathers';
 import  transforWeather, {getCity,getCountry} from './../../services/transformWeather'
 import { api_weather} from '../../constants/api_url';
 import CircularProgress from '@material-ui/core/CircularProgress';
-
+import './styles.css';
 // //constantes de Api
 // const location='3939459';
 // const api_key ='c0a529df488f5c261daa4690385f035c';
@@ -80,13 +80,14 @@ componentWillUpdate(nextProps, nextState) {
 // obtener solo la data que requerimos tenemos que usar su metodo .json en nuestro caso
 // lo que lo hacemos de la siguiente manera.
          fetch(api_weather(this.state.id)).then(resolve =>{
-            // console.log (resolve);
+             console.log (resolve);
+             //resolve es un response 
              return resolve.json();
          }).then(data => {
-            console.log ('Resultado del handleUpdateClick');
+            console.log ('Resultado del fetch');
             const newweather= transforWeather(data);
             const {city,country} =newweather;
-             console.log (newweather);
+            //  console.log (newweather);
              this.setState({
                  data:newweather,
                  city,
@@ -96,7 +97,7 @@ componentWillUpdate(nextProps, nextState) {
              });
          });
         
-        console.log('actualizado');
+        // console.log('actualizado');
         // this.setState({
         //     data:data2,
         // city:'Concepción'});
@@ -114,7 +115,7 @@ componentWillUpdate(nextProps, nextState) {
         // console.log('render');
         const {data,city,country}= this.state;
         return  (
-        <div className='WeatherDataCont' onClick={onWeatherLocationClick}> 
+        <div className='weatherLocationCont' onClick={onWeatherLocationClick}> 
             {city?
                 country?
                     <Location city={city} country={country}/>:<span><CircularProgress color='pink' /></span>

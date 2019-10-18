@@ -22,7 +22,6 @@ import {
 // const WeatherDatas=()=> <div> esto es guerrass</div>;
 
 // const WeatherDatas=()=> (<div> esto es guerrss</div>);
-var lety=5;
 
 //const WeatherDatas=()=> {
 //    var pun= 8;
@@ -45,15 +44,16 @@ const getWeatherIcon = weatherState => {
     const icon=icons[weatherState];
     const sizeIcon='2x';
     if(icon)
-        return  <WeatherIcons  className='weatherTemperatureIcon'name={icon} size={sizeIcon}/>
+        return  <WeatherIcons  className='wicon weatherTemperatureIcon'name={icon} size={sizeIcon}/>
     else
-        return  <WeatherIcons className='weatherTemperatureIcon' name={'day-sunny'} size="4x"/>
+        return  <WeatherIcons className='wicon weatherTemperatureIcon' name={'day-sunny'} size="4x"/>
 }
 const WeatherTemperature= ({temperature,weatherState}) => 
 {
-  return  <div className='weatherTemperature' >
+  return  <div className='weatherTemperatureCont' >
     {getWeatherIcon(weatherState)}
-    <span className='temperature'>{temperature}</span> <span className='temperatureType'>{`C`}</span>
+    <span className='temperature'>{temperature}</span> 
+    <span className='temperatureType'>{`C`}</span>
     </div>
 };
 WeatherTemperature.propTypes ={
