@@ -20,6 +20,7 @@
 }
 .details{
   background: #bbb;
-  height: 100vh;
+  height: 40vh;
   width: 100;
+  padding-top: 10px;
 }

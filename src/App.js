@@ -3,6 +3,7 @@ import React,{Component} from 'react';
 // import WeatherLocation from './components/WeatherLocation';
 import  Cities from './constants/cities';
 import LocationList from './components/LocationList';
+import ForecastExtended from './components/ForecastExtended';
 import {Grid,Col, Row } from 'react-flexbox-grid';
 import Paper from '@material-ui/core/Paper';
 import AppBar from '@material-ui/core/AppBar';
@@ -11,13 +12,25 @@ import ToolBar from '@material-ui/core/Toolbar';
 import './App.css';
 
 class App extends Component {
+  constructor(){
+    super();
+    this.state={
+      cityId:null,
+      cityName:null
+    };
+  }
 
   handleSelectedLocation = city => {
-    console.log('handleSelectedLocation dnns '+city.id+ ' nombre: '+city.name);
+    this.setState({
+          cityId:city.id,
+          cityName:city.name+', '+city.country,
+        })
+    //console.log('handleSelectedLocation dnns '+city.id+ ' nombre: '+city.name);
 }
 
 render () 
-{
+{  const {cityId}=this.state;
+   const {cityName}=this.state;
     return (
     <Grid >
       <Row><AppBar><ToolBar><Typography variant='title' color='Inherit' >Weather App </Typography></ToolBar></AppBar></Row>
@@ -37,8 +50,12 @@ render ()
               onSelectedLocation={this.handleSelectedLocation}/>
         </Col>
         <Col xs={12} md={6}>
-          <Paper elevation={4}>
-          <div className='details'>wacachi</div>
+          <Paper elevation={2}>
+          <div className='details'>
+            {cityId&& <ForecastExtended cityId={cityId} cityName={cityName}></ForecastExtended>
+              }
+            
+          </div>
           </Paper>
           
         </Col>
@@ -46,7 +63,6 @@ render ()
     </Grid>);
   }
 
-const 
 }
 // usado el map en funciones, aprendemos que para que se maneje arreglos de componentes, se tiene q agregar el key que
 //tendria que ser un valor unico como el index, o tambien como en nuestro caso podriamos darle como valo el city.id

@@ -3,10 +3,10 @@
     height: 35px;
     text-align: left;
     line-height: 35px;
-    color:rgb(196, 176, 176);
+    color:rgb(92, 82, 82);
     overflow: hidden;
   }
-  .location h1{
+  .LocationCont h1{
     margin:0;
     white-space: nowrap;
   }
@@ -18,5 +18,16 @@
     box-sizing: border-box;
     padding: 25px;
     font-family:'Roboto','sans-serif';
-    box-sizing: 10px 10px 40px -12px rgba(0,0,0,75);
+    box-shadow: 10px 10px 40px -12px rgba(0,0,0,35);
+}
+.LocationList{
+
+}
+@media(max-width:64em){
+  .LocationList{
+
+    max-height: 60vh;
+    overflow: auto;
+    margin-bottom:20px;
+  }
 }

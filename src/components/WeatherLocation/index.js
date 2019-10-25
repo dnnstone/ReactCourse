@@ -80,7 +80,7 @@ componentWillUpdate(nextProps, nextState) {
 // obtener solo la data que requerimos tenemos que usar su metodo .json en nuestro caso
 // lo que lo hacemos de la siguiente manera.
          fetch(api_weather(this.state.id)).then(resolve =>{
-             console.log (resolve);
+            // console.log (resolve);
              //resolve es un response 
              return resolve.json();
          }).then(data => {
