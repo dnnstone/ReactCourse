@@ -21,6 +21,15 @@
 .details{
   background: #bbb;
   height: 40vh;
-  width: 100;
+  width: calc(100%-40px);
   padding-top: 10px;
+  overflow: auto;
+  padding-left:20px;
+  padding-right:20px;
+
+}
+@media (max-width: 64em){
+  .detail{
+    height: 35vh;
+  }
 }

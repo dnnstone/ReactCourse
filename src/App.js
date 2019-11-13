@@ -1,15 +1,24 @@
 
 import React,{Component} from 'react';
+import { connect } from 'react-redux'; //conecta las librerias react y redux
 // import WeatherLocation from './components/WeatherLocation';
 import  Cities from './constants/cities';
 import LocationList from './components/LocationList';
 import ForecastExtended from './components/ForecastExtended';
 import {Grid,Col, Row } from 'react-flexbox-grid';
+import PropTypes from 'prop-types';
+//import { createStore } from 'redux'; 
+import { actionCreator } from './actions';
+//import { store } from './store';
 import Paper from '@material-ui/core/Paper';
 import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
 import ToolBar from '@material-ui/core/Toolbar';
+
 import './App.css';
+
+// const store= createStore(()=>{},
+// window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 class App extends Component {
   constructor(){
@@ -24,7 +33,12 @@ class App extends Component {
     this.setState({
           cityId:city.id,
           cityName:city.name+', '+city.country,
-        })
+        });
+   // const action= {type: 'setcityName', value: city.name} ;
+   // store.dispatch(action);  
+  //  store.dispatch(actionCreator(city.name));   
+
+  this.props.actionCreatorCity(city.name);  // debe coincidir con el nombre de la funcion de abajo line 91: actionCreator: value=> dispatch(actionCreator(value))
     //console.log('handleSelectedLocation dnns '+city.id+ ' nombre: '+city.name);
 }
 
@@ -71,5 +85,11 @@ render ()
 //   cities.map ((city,index)=><WeatherLocation key={index} city={'San Jeronimo'} country={'Perú'}  id={city.id} />)
 // );
 
+App.propTypes={
+  actionCreatorCity:PropTypes.func.isRequired,
+}
 
-export default App;
+const mapDispatchToProps=dispatch => ({
+  actionCreatorCity: value=> dispatch(actionCreator(value))
+});
+export default connect(null,mapDispatchToProps)(App);

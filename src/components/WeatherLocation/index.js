@@ -84,7 +84,7 @@ componentWillUpdate(nextProps, nextState) {
              //resolve es un response 
              return resolve.json();
          }).then(data => {
-            console.log ('Resultado del fetch');
+            // console.log ('Resultado del fetch');
             const newweather= transforWeather(data);
             const {city,country} =newweather;
             //  console.log (newweather);
