@@ -1,5 +1,8 @@
 import { createStore } from 'redux'; 
+import { city } from './../reducers/city.js';
 
-export const store= createStore(()=>{},
+const initialState={init:'Chepen'};
+
+export const store= createStore(city,initialState,
 window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
