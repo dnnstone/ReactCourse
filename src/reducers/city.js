@@ -1,9 +1,9 @@
-import { SET_CITY, SET_CITY_ID } from './../actions';
+import { SET_CITY_NAME, SET_CITY_ID } from './../actions';
 export const city=(state={},action)=> {
     switch (action.type) {
-        case SET_CITY:
+        case SET_CITY_NAME:
             
-            return {...state, city: action.payload}
+            return {...state, cityname: action.payload}
         case SET_CITY_ID:
             
                 return {...state, cityid: action.payload}
