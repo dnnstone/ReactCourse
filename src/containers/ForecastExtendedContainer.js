@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import ForecastExtended from './../components'
 import PropTypes from 'prop-types';
+
+import ForecastExtended from './../components'
+
 
 class ForecastExtendedContainer extends Component {
     render() {

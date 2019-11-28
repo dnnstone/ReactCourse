@@ -1,16 +1,9 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import  Cities from './../constants/cities';
 import './styles.css';
 import ForecastItem from './ForecastItem';
 import transformForecast from './../services/transformForecast';
-const days=['Lunes',
-'Martes',
-'Miercoles',
-'Jueves',
-'Viernes',
-'Sabado',
-'Domingo',]
+
 // const data={
 //     temperature:10,
 //     humidity: 45,
@@ -89,7 +82,7 @@ return forecastData.map(forecast=>(
     render()
     {
         // const {cityId}= this.props;
-        const {cityName, cityId}=this.props;
+        const {cityName}=this.props;
         const {forecastData}=this.state;
         return (<div>
                     <h2 className='forecast-title'>Pronóstico extendido para {cityName}</h2>
