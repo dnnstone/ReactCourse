@@ -38,7 +38,9 @@ class App extends Component {
    // store.dispatch(action);  
   //  store.dispatch(actionCreator(city.name));   
 
-  this.props.actionCreatorCity(city.name);  // debe coincidir con el nombre de la funcion de abajo line 91: actionCreator: value=> dispatch(actionCreator(value))
+  // this.props.actionCreatorCity(city.name);  
+  
+  // debe coincidir con el nombre de la funcion de abajo line 91: actionCreator: value=> dispatch(actionCreator(value))
     //console.log('handleSelectedLocation dnns '+city.id+ ' nombre: '+city.name);
 }
 
@@ -84,12 +86,13 @@ render ()
 // const strToComponents = cities=>(
 //   cities.map ((city,index)=><WeatherLocation key={index} city={'San Jeronimo'} country={'Perú'}  id={city.id} />)
 // );
+export default App;
 
-App.propTypes={
-  actionCreatorCity:PropTypes.func.isRequired,
-}
+// App.propTypes={
+//   actionCreatorCity:PropTypes.func.isRequired,
+// }
 
-const mapDispatchToProps=dispatch => ({
-  actionCreatorCity: value=> dispatch(actionCreator(value))
-});
-export default connect(null,mapDispatchToProps)(App);
+// const mapDispatchToProps=dispatch => ({
+//   actionCreatorCity: value=> dispatch(actionCreator(value))
+// });
+// export default connect(null,mapDispatchToProps)(App);
