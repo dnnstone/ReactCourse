@@ -4,7 +4,7 @@ import React,{Component} from 'react';
 // import WeatherLocation from './components/WeatherLocation';
 import  Cities from './constants/cities';
 //import LocationList from './components/LocationList';
-import ForecastExtended from './components/ForecastExtended';
+
 import {Grid,Col, Row } from 'react-flexbox-grid';
 //import PropTypes from 'prop-types';
 //import { createStore } from 'redux'; 
@@ -15,19 +15,14 @@ import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
 import ToolBar from '@material-ui/core/Toolbar';
 import LocationListContainer from './containers/LocationListContainers';
+import ForecastExtendedContainer from './containers/ForecastExtendedContainer';
 import './App.css';
 
 // const store= createStore(()=>{},
 // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 class App extends Component {
-  constructor(){
-    super();
-    this.state={
-      cityId:null,
-      cityName:null
-    };
-  }
+
 
 //   handleSelectedLocation = city => {
 //     this.setState({
@@ -43,8 +38,7 @@ class App extends Component {
 // }
 
 render () 
-{  const {cityId}=this.state;
-   const {cityName}=this.state;
+{  
     return (
     <Grid >
       <Row><AppBar><ToolBar><Typography variant='title' color='Inherit' >Weather App </Typography></ToolBar></AppBar></Row>
@@ -68,8 +62,11 @@ render ()
         <Col xs={12} md={6}>
           <Paper elevation={2}>
           <div className='details'>
-            {cityId&& <ForecastExtended cityId={cityId} cityName={cityName}></ForecastExtended>
-              }
+
+          <ForecastExtendedContainer></ForecastExtendedContainer>
+
+            {/* {cityId&& <ForecastExtended cityId={cityId} cityName={cityName}></ForecastExtended>
+              } */}
             
           </div>
           </Paper>
